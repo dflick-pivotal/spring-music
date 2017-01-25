@@ -8,10 +8,11 @@ import org.springframework.cloud.CloudFactory;
 import org.springframework.cloud.service.ServiceInfo;
 import org.springframework.cloud.service.common.MongoServiceInfo;
 import org.springframework.cloud.service.common.MysqlServiceInfo;
-import org.springframework.cloud.service.common.OracleServiceInfo;
+import org.springframework.cloud.service.common.OracleServiceInfo; 
 import org.springframework.cloud.service.common.PostgresqlServiceInfo;
 import org.springframework.cloud.service.common.RedisServiceInfo;
 import org.springframework.cloud.service.common.SqlServerServiceInfo;
+import org.springframework.cloud.service.common.DB2ServiceInfo;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -33,8 +34,9 @@ public class SpringApplicationContextInitializer implements ApplicationContextIn
         serviceTypeToProfileName.put(PostgresqlServiceInfo.class, "postgres");
         serviceTypeToProfileName.put(MysqlServiceInfo.class, "mysql");
         serviceTypeToProfileName.put(RedisServiceInfo.class, "redis");
-        serviceTypeToProfileName.put(OracleServiceInfo.class, "oracle");
+        serviceTypeToProfileName.put(OracleServiceInfo.class, "oracle"); 
         serviceTypeToProfileName.put(SqlServerServiceInfo.class, "sqlserver");
+        serviceTypeToProfileName.put(DB2ServiceInfo.class, "db2");
     }
 
     @Override

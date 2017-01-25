@@ -64,6 +64,8 @@ dependencies {
 
     // Testing
     testCompile "junit:junit"
+	
+	runtime fileTree(dir: 'lib', include: ['*.jar']) 
 }
 
 jar {
