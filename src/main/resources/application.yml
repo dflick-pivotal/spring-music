@@ -1,9 +1,20 @@
 logging:
   level: 
     org: 
-#      hibernate: debug
+      hibernate: debug
       springframework: debug
 #        data: debug
+#        cloud:
+#          service:
+#            relational: debug
+
+---
+spring:
+  profiles: test
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.DB2Dialect
 
 ---
 spring:
