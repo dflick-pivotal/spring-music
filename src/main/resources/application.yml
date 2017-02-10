@@ -8,13 +8,6 @@ logging:
 #          service:
 #            relational: debug
 
----
-spring:
-  profiles: test
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.DB2Dialect
 
 ---
 spring:

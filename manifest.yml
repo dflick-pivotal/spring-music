@@ -4,7 +4,4 @@ applications:
   memory: 1G
   random-route: true
   path: build/libs/spring-music.jar
-#  services: [db2-db]
-  env:
-    SPRING_PROFILES_ACTIVE: test
-
+  services: [db2-db]
