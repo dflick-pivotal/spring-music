@@ -10,9 +10,9 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 @Profile("redis-local")
 public class RedisLocalConfig {
 
-    @Bean
-    public RedisConnectionFactory redisConnection() {
-        return new JedisConnectionFactory();
-    }
+	@Bean
+	public RedisConnectionFactory redisConnection() {
+		return new JedisConnectionFactory();
+	}
 
 }

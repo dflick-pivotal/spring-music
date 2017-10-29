@@ -10,9 +10,9 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @Profile("mongodb")
 public class MongoConfig {
 
-    @Bean
-    public MongoTemplate mongoTemplate(MongoDbFactory mongoDbFactory) {
-        return new MongoTemplate(mongoDbFactory);
-    }
+	@Bean
+	public MongoTemplate mongoTemplate(MongoDbFactory mongoDbFactory) {
+		return new MongoTemplate(mongoDbFactory);
+	}
 
 }

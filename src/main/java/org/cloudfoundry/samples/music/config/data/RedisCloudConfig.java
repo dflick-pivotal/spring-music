@@ -10,9 +10,9 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 @Profile("redis-cloud")
 public class RedisCloudConfig extends AbstractCloudConfig {
 
-    @Bean
-    public RedisConnectionFactory redisConnection() {
-        return connectionFactory().redisConnectionFactory();
-    }
+	@Bean
+	public RedisConnectionFactory redisConnection() {
+		return connectionFactory().redisConnectionFactory();
+	}
 
 }

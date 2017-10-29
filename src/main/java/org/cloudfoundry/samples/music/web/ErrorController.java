@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/errors")
 public class ErrorController {
-    private static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
 
-    @RequestMapping(value = "/kill")
-    public void kill() {
-        logger.info("Forcing application exit");
-        System.exit(1);
-    }
+	@RequestMapping(value = "/kill")
+	public void kill() {
+		logger.info("Forcing application exit");
+		System.exit(1);
+	}
 
-    @RequestMapping(value = "/throw")
-    public void throwException() {
-        logger.info("Forcing an exception to be thrown");
-        throw new NullPointerException("Forcing an exception to be thrown");
-    }
+	@RequestMapping(value = "/throw")
+	public void throwException() {
+		logger.info("Forcing an exception to be thrown");
+		throw new NullPointerException("Forcing an exception to be thrown");
+	}
 }

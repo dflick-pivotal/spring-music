@@ -15,26 +15,26 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Profile("redis")
 public class RedisConfig {
 
-    @Bean
-    public RedisAlbumRepository redisRepository(RedisTemplate<String, Album> redisTemplate) {
-        return new RedisAlbumRepository(redisTemplate);
-    }
+	@Bean
+	public RedisAlbumRepository redisRepository(RedisTemplate<String, Album> redisTemplate) {
+		return new RedisAlbumRepository(redisTemplate);
+	}
 
-    @Bean
-    public RedisTemplate<String, Album> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        RedisTemplate<String, Album> template = new RedisTemplate<>();
+	@Bean
+	public RedisTemplate<String, Album> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+		RedisTemplate<String, Album> template = new RedisTemplate<>();
 
-        template.setConnectionFactory(redisConnectionFactory);
+		template.setConnectionFactory(redisConnectionFactory);
 
-        RedisSerializer<String> stringSerializer = new StringRedisSerializer();
-        RedisSerializer<Album> albumSerializer = new Jackson2JsonRedisSerializer<>(Album.class);
+		RedisSerializer<String> stringSerializer = new StringRedisSerializer();
+		RedisSerializer<Album> albumSerializer = new Jackson2JsonRedisSerializer<>(Album.class);
 
-        template.setKeySerializer(stringSerializer);
-        template.setValueSerializer(albumSerializer);
-        template.setHashKeySerializer(stringSerializer);
-        template.setHashValueSerializer(albumSerializer);
+		template.setKeySerializer(stringSerializer);
+		template.setValueSerializer(albumSerializer);
+		template.setHashKeySerializer(stringSerializer);
+		template.setHashValueSerializer(albumSerializer);
 
-        return template;
-    }
+		return template;
+	}
 
 }

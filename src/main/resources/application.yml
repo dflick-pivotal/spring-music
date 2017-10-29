@@ -1,8 +1,8 @@
-logging:
-  level: 
-    org: 
-      hibernate: debug
-      springframework: debug
+#logging:
+#  level: 
+#    org: debug
+#      hibernate: debug
+#      springframework: debug
 #        data: debug
 #        cloud:
 #          service:
