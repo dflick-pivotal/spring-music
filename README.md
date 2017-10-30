@@ -7,6 +7,25 @@ This application has been built to store the same domain objects in one of a var
 
 The application use Spring Java configuration and [bean profiles](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html) to configure the application and the connection objects needed to use the persistence stores. It also uses the [Spring Cloud Connectors](http://cloud.spring.io/spring-cloud-connectors/) library to inspect the environment when running on Cloud Foundry. See the [Cloud Foundry documentation](http://docs.cloudfoundry.org/buildpacks/java/spring-service-bindings.html) for details on configuring a Spring application for Cloud Foundry.
 
+## Running the application on PCF with GemFire
+
+~~~
+1. git clone https://github.com/dflick-pivotal/spring-music.git
+2. git checkout gemfire
+3. cd spring-music
+4. ./gradlew assemble
+5. GemFire User Povided Service erstellen und hierbei die locator bekannt machen: 
+  cf cups gemfire -p '{"uri":"locator://[locator ip]:[locator port];locator://[locator ip]:[locator port]"}'
+  Beispiel:
+  cf cups gemfire -p '{"uri":"locator://host.pcfdev.io:10334;locator://host.pcfdev.io:10335"}'
+6. GemFire 'Album' Region erstellen (mit gfsh): 
+  Beispiel: 
+  - create region --name=Album --type=REPLICATE 
+    oder
+    create region --name=Album --type=PARTITION
+7. cf push
+~~~
+
 ## Running the application locally
 
 One Spring bean profile should be activated to choose the database provider that the application should use. The profile is selected by setting the system property `spring.profiles.active` when starting the app.
